@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Anya &amp; Santi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ══════════════════════════════════
+         ENVELOPE SCREEN
+    ══════════════════════════════════ -->
+    <div id="envelope-scene">
+      <div class="lang-toggle-env lang-toggle">
+        <button class="lang-btn" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" onclick="setLang('uk')">UA</button>
+      </div>
+
+      <div class="envelope-wrap" id="envelopeWrap" onclick="openEnvelope()">
+        <div class="envelope">
+          <div class="env-body"></div>
+          <div class="env-left"></div>
+          <div class="env-right"></div>
+          <div class="env-bottom"></div>
+          <div class="env-flap"></div>
+          <div class="wax-seal">
+            <span class="env-monogram">A·S</span>
+          </div>
+        </div>
+
+        <p class="env-hint" id="env-hint-text"></p>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════
+         INVITATION CARD
+    ══════════════════════════════════ -->
+    <div id="invitation">
+      <div class="card-inner">
+        <!-- Language switcher -->
+        <div class="lang-toggle-card lang-toggle">
+          <button class="lang-btn" onclick="setLang('es')">ES</button>
+          <button class="lang-btn" onclick="setLang('uk')">UA</button>
+        </div>
+
+        <!-- Floral Monogram -->
+        <div class="monogram-section">
+          <img
+            src="https://res.cloudinary.com/di1gpfw6h/image/upload/v1773097544/flores_rsee5i.png"
+            alt="A·S"
+          />
+        </div>
+
+        <!-- Names -->
+        <div class="names-section">
+          <div class="name-main" id="title-names"></div>
+        </div>
+
+        <!-- Photo -->
+        <div class="photo-section">
+          <div class="photo-frame">
+            <!-- Replace the placeholder below with your photo: -->
+            <img
+              src="https://res.cloudinary.com/di1gpfw6h/image/upload/v1773414897/nosotros2_lli5hy.jpg"
+              alt="Anya & Santi"
+            />
+            <!-- src="https://res.cloudinary.com/di1gpfw6h/image/upload/v1773414161/nosotros_f4ont8.jpg" -->
+
+            <!-- <div class="photo-placeholder">
+              <svg width="44" height="44" viewBox="0 0 48 48" fill="none">
+                <rect
+                  x="4"
+                  y="10"
+                  width="40"
+                  height="32"
+                  rx="2"
+                  stroke="#a68472"
+                  stroke-width="1.5"
+                />
+                <circle
+                  cx="16"
+                  cy="22"
+                  r="4"
+                  stroke="#a68472"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M4 36 L14 26 L22 34 L30 24 L44 36"
+                  stroke="#a68472"
+                  stroke-width="1.5"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <p>Your Photo Here</p>
+            </div> -->
+            <div class="photo-overlay"></div>
+            <div class="photo-corner tl"></div>
+            <div class="photo-corner tr"></div>
+            <div class="photo-corner bl"></div>
+            <div class="photo-corner br"></div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider">
+          <div class="line"></div>
+          <div class="gem"></div>
+          <div class="gem-sm"></div>
+          <div class="gem"></div>
+          <div class="line"></div>
+        </div>
+
+        <!-- Invite text -->
+        <div class="invite-text">
+          <p id="invite-text-content"></p>
+        </div>
+
+        <!-- Date -->
+        <div class="date-section">
+          <div class="date-display">
+            <span class="date-num">05</span>
+            <div class="date-sep"></div>
+            <span class="date-num">07</span>
+            <div class="date-sep"></div>
+            <span class="date-num">2026</span>
+          </div>
+          <div class="date-label" id="date-weekday"></div>
+        </div>
+
+        <!-- Countdown -->
+        <div class="countdown-section">
+          <p class="countdown-label" id="countdown-label-text"></p>
+          <div class="countdown-grid">
+            <div class="countdown-item">
+              <span class="countdown-num" id="cd-days">—</span>
+              <span class="countdown-unit" id="cd-unit-days"></span>
+            </div>
+            <span class="countdown-sep">·</span>
+            <div class="countdown-item">
+              <span class="countdown-num" id="cd-hours">—</span>
+              <span class="countdown-unit" id="cd-unit-hours"></span>
+            </div>
+            <span class="countdown-sep">·</span>
+            <div class="countdown-item">
+              <span class="countdown-num" id="cd-mins">—</span>
+              <span class="countdown-unit" id="cd-unit-mins"></span>
+            </div>
+            <span class="countdown-sep">·</span>
+            <div class="countdown-item">
+              <span class="countdown-num" id="cd-secs">—</span>
+              <span class="countdown-unit" id="cd-unit-secs"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider" style="animation-delay: 1.4s">
+          <div class="line"></div>
+          <div class="gem"></div>
+          <div class="line"></div>
+        </div>
+
+        <!-- Location -->
+        <div class="details-section">
+          <a
+            class="location-link"
+            id="location-link-text"
+            href="https://maps.app.goo.gl/b5mAmVqyem6jtCSz8"
+            target="_blank"
+          ></a>
+        </div>
+
+        <!-- Bank (ES only) -->
+        <div class="bank-section" id="bank-section">
+          <p class="bank-title">Número de cuenta para regalo</p>
+          <p class="bank-num">ES89 2080 5539 7030 0000 4525</p>
+        </div>
+
+        <!-- RSVP -->
+        <div class="rsvp-section">
+          <div
+            class="divider"
+            style="margin-bottom: 28px; animation: none; opacity: 1"
+          >
+            <div class="line"></div>
+            <div class="gem"></div>
+            <div class="gem-sm"></div>
+            <div class="gem"></div>
+            <div class="line"></div>
+          </div>
+          <p class="rsvp-text" id="rsvp-text-content"></p>
+        </div>
+      </div>
+      <!-- /.card-inner -->
+    </div>
+    <!-- /#invitation -->
+
+    <!-- ══════════════════════════════════
+         MUSIC PLAYER
+    ══════════════════════════════════ -->
+    <div class="music-player" id="musicPlayer">
+      <div class="music-tooltip" id="music-tooltip-text"></div>
+      <button class="music-btn" onclick="toggleMusic()">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="note-icon">
+          <path d="M9 3v10.55A4 4 0 1 0 11 17V7h4V3H9z" />
+        </svg>
+      </button>
+      <audio id="bgMusic" loop>
+        <source
+          src="https://res.cloudinary.com/di1gpfw6h/video/upload/v1773415758/ICARUS_ORCHESTRAL-V._fctxzz.mp3"
+          type="audio/mpeg"
+        />
+      </audio>
+    </div>
+    <!-- src="https://res.cloudinary.com/di1gpfw6h/video/upload/v1773415433/Sia_Lovablevibescom_-_Helium_lovablevibes.com__wd1tne.mp3" -->
+    <script src="script.js"></script>
+  </body>
+</html>
