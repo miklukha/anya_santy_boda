@@ -33,8 +33,8 @@ const T = {
     uk: '✦ Illas Gabeiras, Ferrol'
   },
   rsvpText: {
-    es: 'Por favor, confirma tu asistencia\nantes del 1 de junio de 2026',
-    uk: 'Будь ласка, підтверди свою присутність\nне пізніше 1 червня 2026 року'
+    es: 'Por favor, confirma tu asistencia\nantes del 1 de agosto de 2026',
+    uk: 'Будь ласка, підтверди свою присутність\nне пізніше 1 серпня 2026 року'
   },
   musicTooltip: {
     es: 'Música de fondo',
@@ -164,7 +164,7 @@ function tryAutoplay() {
 }
 
 // ══════════════════════════════════
-//  COUNTDOWN — target: 2026-07-05
+//  COUNTDOWN — target: 2026-09-13
 // ══════════════════════════════════
 function updateCountdown() {
   const daysEl = document.getElementById('cd-days');
@@ -175,7 +175,7 @@ function updateCountdown() {
   // Elements might not be in DOM yet — skip silently
   if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
 
-  const target = new Date('2026-07-05T00:00:00');
+  const target = new Date('2026-09-13T00:00:00');
   const now = new Date();
   let diff = target - now;
 
